@@ -18,13 +18,13 @@ const Navbar = () => {
     { name: "Contact", path: "/contact" },
   ];
 
-  const isActive = (path) => {
+  const isActive = (path: any) => {
     if (path === "/") return pathname === "/";
     return pathname.startsWith(path);
   };
 
   return (
-    <nav className="bg-gray-800 border-b border-gray-700 shadow-md sticky top-0 z-50">
+    <nav className="bg-gray-900 border-b border-gray-700 shadow-md sticky top-0 z-50">
       <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
         
         {/* Logo */}
