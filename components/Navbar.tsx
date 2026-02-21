@@ -24,15 +24,15 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-gray-900 border-b border-gray-700 shadow-md sticky top-0 z-50">
+    <nav className="bg-gray-200 border-b border-gray-700 shadow-md sticky top-0 z-50">
       <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
         
         {/* Logo */}
         <Link
           href="/"
-          className="flex items-center gap-2 text-lg font-bold text-blue-300"
+          className="flex items-center gap-2 text-lg font-bold text-gray-500"
         >
-          <FaLaptopCode className="text-blue-400 text-xl" />
+          <FaLaptopCode className="text-gray-500 text-xl" />
           <span>Blog for Dev</span>
         </Link>
 
@@ -46,12 +46,12 @@ const Navbar = () => {
                 className={`relative pb-1 transition-colors duration-300
                   ${
                     isActive(link.path)
-                      ? "text-blue-400"
-                      : "text-gray-300 hover:text-blue-400"
+                      ? "text-gray-600"
+                      : "text-gray-500 hover:text-gray-600"
                   }
                   after:absolute after:left-0 after:bottom-0
                   after:h-0.5 after:w-0
-                  after:bg-blue-400
+                  after:bg-gray-500
                   after:transition-all after:duration-300
                   hover:after:w-full
                   ${isActive(link.path) ? "after:w-full" : ""}
