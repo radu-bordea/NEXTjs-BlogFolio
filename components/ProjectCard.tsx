@@ -9,7 +9,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
       href={`/projects/${project.id}`}
     >
       <div className="bg-gray-200 text-gray-700 rounded-lg overflow-hidden shadow-sm transition hover:shadow-lg">
-        <div className="relative w-full h-60">
+        <div className="relative w-full h-50">
           <Image
             src={project.image}
             alt={project.title}
