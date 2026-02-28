@@ -5,6 +5,7 @@ import type { Project } from "@/types";
 import Pagination from "./Pagination";
 import ProjectCard from "./ProjectCard";
 import { Button } from "./ui/button";
+import { AnimatePresence, motion } from "framer-motion";
 
 type PaginationWrapperProps = {
   projects: Project[];
@@ -24,25 +25,16 @@ const PaginationWrapper = ({
   const filteredProjects =
     selectedCategory === "All"
       ? projects
-      : projects.filter(
-          (project) => project.category === selectedCategory
-        );
+      : projects.filter((project) => project.category === selectedCategory);
 
   // 2️⃣ Recalculate total pages after filtering
-  const totalPages = Math.ceil(
-    filteredProjects.length / projectsPerPage
-  );
+  const totalPages = Math.ceil(filteredProjects.length / projectsPerPage);
 
   // 3️⃣ Paginate filtered results
   const indexOfLast = currentPage * projectsPerPage;
   const indexOfFirst = indexOfLast - projectsPerPage;
 
-  const currentProjects = filteredProjects.slice(
-    indexOfFirst,
-    indexOfLast
-  );
-
-
+  const currentProjects = filteredProjects.slice(indexOfFirst, indexOfLast);
 
   return (
     <div>
@@ -53,7 +45,10 @@ const PaginationWrapper = ({
         {categories.map((category) => (
           <Button
             key={category}
-            onClick={() => { setSelectedCategory(category); setCurrentPage(1)}}
+            onClick={() => {
+              setSelectedCategory(category);
+              setCurrentPage(1);
+            }}
             className={`px-4 py-2 hover:bg-gray-700 hover:text-gray-100 cursor-pointer rounded-lg border transition ${
               selectedCategory === category
                 ? "bg-gray-700 text-gray-100"
@@ -66,15 +61,19 @@ const PaginationWrapper = ({
       </div>
 
       {/* Projects Grid */}
-      <div className="grid gap-6 sm:grid-cols-2">
-        {currentProjects.length > 0 ? (
-          currentProjects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))
-        ) : (
-          <p>No projects found.</p>
-        )}
-      </div>
+      <AnimatePresence mode="wait">
+        <motion.div layout className="grid gap-6 sm:grid-cols-2">
+          {currentProjects.length > 0 ? (
+            currentProjects.map((project) => (
+              <motion.div key={project.id} layout>
+                <ProjectCard project={project} />
+              </motion.div>
+            ))
+          ) : (
+            <p>No projects found.</p>
+          )}
+        </motion.div>
+      </AnimatePresence>
 
       {/* Pagination */}
       {totalPages > 1 && (
