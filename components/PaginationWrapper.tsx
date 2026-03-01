@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import type { Project } from "@/types";
 import Pagination from "./Pagination";
 import ProjectCard from "./ProjectCard";

@@ -10,7 +10,7 @@ const Hero = ({
   text = "build friendly web experiences and help others run their businesses.",
 }: HeroProps) => {
   return (
-    <header className="text-center py-20 px-4 bg-gray-300 text-gray-500 transition-colors duration-300">
+    <header className="text-center py-10 px-4 bg-gray-300 text-gray-500 transition-colors duration-300">
       <h2 className="text-4xl font-bold mb-4">
         Hey, I'm {name} 👋
       </h2>

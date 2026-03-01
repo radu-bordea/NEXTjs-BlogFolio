@@ -5,9 +5,12 @@ import Link from "next/link";
 import Image from "next/image";
 
 async function getProject(id: string): Promise<Project> {
-  const res = await fetch(`http://localhost:8000/projects/${Number(id)}`, {
-    cache: "no-store",
-  });
+  const res = await fetch(
+    `${process.env.NEXT_API_URL}/projects/${Number(id)}`,
+    {
+      cache: "no-store",
+    },
+  );
 
   if (res.status === 404) {
     notFound();
@@ -52,7 +55,13 @@ const ProjectDetailsPage = async (props: {
             {new Date(project.date).toLocaleDateString()} * {project.category}
           </p>
           <p className="text-gray-500 mb-6">{project.description}</p>
-          <Link href={project.url} target="_blank" className="inline-block text-gray-600 bg-gray-200 hover:bg-gray-300 px-6 py-2 rounded transition">View Live Site ➽</Link>
+          <Link
+            href={project.url}
+            target="_blank"
+            className="inline-block text-gray-600 bg-gray-200 hover:bg-gray-300 px-6 py-2 rounded transition"
+          >
+            View Live Site ➽
+          </Link>
         </div>
       </div>
     </>
