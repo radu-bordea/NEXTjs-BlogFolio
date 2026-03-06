@@ -77,7 +77,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden bg-gray-900 border-t border-gray-700 overflow-hidden transition-all duration-300 ${
+        className={`md:hidden bg-gray-300 border-t border-gray-400 overflow-hidden transition-all duration-300 ${
           menuOpen ? "max-h-96 py-4" : "max-h-0"
         }`}
       >
@@ -91,7 +91,7 @@ const Navbar = () => {
                 ${
                   isActive(link.path)
                     ? "text-blue-400 font-semibold"
-                    : "text-gray-300 hover:text-blue-400"
+                    : "text-gray-500 hover:text-blue-400"
                 }
               `}
             >

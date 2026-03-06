@@ -3,14 +3,19 @@ import Link from "next/link";
 
 const AboutPreview = () => {
   return (
-    <section className="mt-12 p-10 flex flex-col items-center gap-8 bg-gray-300 md:flex-row">
-      <Image
-        src="/images/profile.jpg"
-        alt="profile image"
-        className="object-cover rounded-full border-4 border-gray-500 shadow-md"
-        width={100}
-        height={100}
-      />
+    <section className="mt-12 p-5 flex flex-col items-center gap-8 bg-gray-300 md:flex-row">
+      <div className="relative shrink-0 w-24 h-24">
+        <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-gray-400 shadow-md">
+          <Image
+            src="/images/profile.jpg"
+            alt="profile image"
+            className="object-cover w-full h-full"
+            width={96}
+            height={96}
+          />
+        </div>
+        <span className="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-emerald-500 border-2 border-gray-300" />
+      </div>
       <div>
         <h2 className="text-2xl font-bold text-gray-500 mb-2">About Me</h2>
 

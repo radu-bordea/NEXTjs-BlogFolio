@@ -29,7 +29,7 @@ const Hero = ({
 
         <Link
           href="/contact"
-          className="border border-gray-500 text-gray-400 px-6 py-2 rounded hover:bg-gray-600 hover:text-white transition"
+          className="border border-gray-500 text-gray-500 px-6 py-2 rounded hover:bg-gray-600 hover:text-white transition"
         >
           Contact Me
         </Link>
